@@ -1,12 +1,85 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <meta name="description"
+            content="HAII MY NAME IS ILOTTERYTEA I'M A GAME DEVELOPER PLEASE OPEN THIS PAGE AND LOOK AT ALL WHAT IVE DONE1!!!!! *O*">
         <link rel="stylesheet" href="style.css">
+        <link rel="icon" href="favicon.ico" type="image/x-icon">
+        <title>HAIII I'MLOTTERYTEA N2MU</title>
     </head>
     <body>
-        <div>
-            <p>Hi</p>
-            <img src="assets/toletole.png" alt="">
+        <noscript>bruh turn the javascript on</noscript>
+        <video autoplay muted loop class="background">
+            <source src="assets/background/maxon.mp4" type="video/mp4"
+                id="background">
+        </video>
+        <div class="container">
+            <div class="wrapper">
+                <!-- About me section -->
+                <div class="about">
+                    <!-- Logo brand -->
+                    <div class="brand">
+                        <img src="assets/logo.png" alt>
+                    </div>
+
+                    <!-- Little section about me -->
+                    <p class="info" id="info"></p>
+
+                    <div class="projects"></div>
+                </div>
+
+                <!-- Selected project -->
+                <div class="project-icon">
+                    <img src alt id="icon">
+                </div>
+            </div>
         </div>
     </body>
+    <script>
+        const data = [
+            {
+                name: "maxon",
+                title: "Maxon Petting Simulator",
+                url: "https://ilotterytea.kz/maxon",
+                description: `
+                GET READY FOR THE CUTEST 3D CLICKER GAME EVER!!! >.<<br>
+                Welcome to MAXON PETTING SIMULATOR, where you'll meet the adorable kitty that NEEDS its cheeks squished ALL the time! (≧▽≦)<br>
+                <br>
+                ♪(๑>◡<๑) Bop along to the chiptune music!<br> (￣▽￣)ノ Dive into the colorful 3D world!<br>
+                Get ready to click, pet, and giggle your way to CUTENESS OWERLOADD!!!(´｡• ᵕ •｡\`)<br>
+                `,
+            }
+        ];
+        
+        const projects = document.querySelector(".projects");
+        const description = document.getElementById("info");
+        const icon = document.getElementById("icon");
+        const video = document.getElementById("background");
+        
+        for (const item of data) {
+            const link = document.createElement("a");
+            link.innerHTML = item.title;
+
+            link.setAttribute("href", item.url);
+            link.setAttribute("class", "project");
+
+            link.addEventListener("mouseover", (e) => {
+                description.innerHTML = item.description;
+                description.style.color = "white";
+                
+                icon.setAttribute("src", "assets/icon/" + item.name + ".png");
+                icon.style.opacity = "1.0";
+            });
+            link.addEventListener("mouseleave", (e) => {
+                description.innerHTML = "";
+                description.style.color = "transparent";
+
+                icon.style.opacity = "0.0";
+            });
+
+            projects.appendChild(link);
+        }
+    </script>
 </html>
